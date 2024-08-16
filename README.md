@@ -1,6 +1,6 @@
 # Google Meet Bot
 
-This Python-based bot automates the process of joining Google Meet meetings, turning off the microphone and camera, and recording audio from the meeting. It uses Selenium for browser automation and `sounddevice` for audio recording. The recorded audio is post-processed to improve quality.
+This Python-based bot automates the process of joining Google Meet meetings, turning off the microphone and camera, and recording audio from the meeting. It uses `Selenium` for browser automation and `sounddevice` for audio recording. The recorded audio is post-processed to improve quality.
 
 ## Features
 
@@ -20,9 +20,9 @@ This Python-based bot automates the process of joining Google Meet meetings, tur
 
 1. **Clone the Repository:**
 
-   `git clone <repository-url>`
+   `git clone https://github.com/nigel-sys/Google-Meet-Bot.git`
 
-   `cd <repository-name>`
+   `cd Google-Meet-Bot`
 
 2. **Set Up a Virtual Environment (Recommended):**
 
@@ -37,6 +37,9 @@ This Python-based bot automates the process of joining Google Meet meetings, tur
 4. **Create a `.env` File:**
 
    Create a `.env` file in the root directory of the project and add your Google account credentials:
+
+   EMAIL=your-email@example.com
+   PASSWORD=your-password
 
 ## Usage
 
