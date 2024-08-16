@@ -57,11 +57,7 @@ When prompted, enter the Google Meet link of the meeting you want to join.
 - **Meeting URL:** Provide the Google Meet URL when prompted by the script.
 - **Output File:** The recorded audio is saved as `meeting_audio.wav` by default. You can change the filename in the `GoogleMeetBot` class constructor.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
-- Selenium for browser automation
+- `Selenium` for browser automation
 - `sounddevice` and `pydub` for audio processing
