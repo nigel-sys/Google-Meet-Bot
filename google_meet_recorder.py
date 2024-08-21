@@ -26,6 +26,7 @@ class GoogleMeetBot:
     def initialize_browser(self):
         opt = Options()
         opt.add_argument('--disable-blink-features=AutomationControlled')
+        opt.add_argument("--disable-search-engine-choice-screen")
         opt.add_argument('--start-maximized')
         opt.add_experimental_option("prefs", {
             "profile.default_content_setting_values.media_stream_mic": 1,
@@ -76,18 +77,18 @@ class GoogleMeetBot:
         except TimeoutException:
             print(
                 "Could not find 'Join now' button. Trying to find 'Ask to join' button...")
-        try:
-            # If "Join now" is not found, look for the "Ask to join" button
-            ask_to_join_button = WebDriverWait(self.driver, 20).until(
-                EC.element_to_be_clickable(
-                    (By.XPATH, '//span[text()="Ask to join"]/..'))
-            )
-            ask_to_join_button.click()
-            print("Clicked 'Ask to join'")
-        except TimeoutException:
-            print(
-                "Could not find 'Ask to join' button. The meeting might not be accessible.")
-            self.handle_name_prompt()  # Attempt to handle name prompt, the last case
+            try:
+                # If "Join now" is not found, look for the "Ask to join" button
+                ask_to_join_button = WebDriverWait(self.driver, 20).until(
+                    EC.element_to_be_clickable(
+                        (By.XPATH, '//span[text()="Ask to join"]/..'))
+                )
+                ask_to_join_button.click()
+                print("Clicked 'Ask to join'")
+            except TimeoutException:
+                print(
+                    "Could not find 'Ask to join' button. The meeting might not be accessible.")
+                self.handle_name_prompt()  # Attempt to handle name prompt, the last case
 
     def handle_name_prompt(self):
         try:
@@ -164,7 +165,6 @@ class GoogleMeetBot:
         self.driver.quit()
 
 
-# Usage
 load_dotenv()
 email = os.getenv("EMAIL")
 password = os.getenv("PASSWORD")
